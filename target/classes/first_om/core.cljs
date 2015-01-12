@@ -6,18 +6,18 @@
 
 
 (def app-state
-  (atom {:selected "def"
+  (atom {:selected 0
          :speakers [
                     {:bio  "BIO 1! Lorem ipsum dolor sit amet, cum hinc oporteat definitionem an, solet abhorreant nec in, suas tibique epicurei mea ne. Eum nulla vivendum temporibus eu, laoreet mentitum offendit ne his. Eu sea impetus pericula deseruisse, id cum unum dicat praesent. Meis tempor melius mei an, fugit tacimates mediocritatem sed at. Ut dicit simul graeco est, accusam molestiae no pri, an his singulis moderatius. Eripuit epicuri no pri, movet iudicabit at mei."
-                     :name "Speaker One" :company "Company A" :title "President" :image "images/speaker1.jpg" :selected true :arrow-pos "arrow-class-0"},
+                     :name "Speaker One" :company "Company A" :title "President" :image "images/speaker1.jpg" :selected true :arrow-pos "8%"},
                     {:bio  "BIO 2! Lorem ipsum dolor sit amet, cum hinc oporteat definitionem an, solet abhorreant nec in, suas tibique epicurei mea ne. Eum nulla vivendum temporibus eu, laoreet mentitum offendit ne his. Eu sea impetus pericula deseruisse, id cum unum dicat praesent. Meis tempor melius mei an, fugit tacimates mediocritatem sed at. Ut dicit simul graeco est, accusam molestiae no pri, an his singulis moderatius. Eripuit epicuri no pri, movet iudicabit at mei."
-                     :name "Speaker Two" :company "Company B" :title "VP Marketing" :image "images/speaker2.jpg" :selected false :arrow-pos "arrow-class-1"},
+                     :name "Speaker Two" :company "Company B" :title "VP Marketing" :image "images/speaker2.jpg" :selected false :arrow-pos "28%"},
                     {:bio  "BIO 3! Lorem ipsum dolor sit amet, cum hinc oporteat definitionem an, solet abhorreant nec in, suas tibique epicurei mea ne. Eum nulla vivendum temporibus eu, laoreet mentitum offendit ne his. Eu sea impetus pericula deseruisse, id cum unum dicat praesent. Meis tempor melius mei an, fugit tacimates mediocritatem sed at. Ut dicit simul graeco est, accusam molestiae no pri, an his singulis moderatius. Eripuit epicuri no pri, movet iudicabit at mei."
-                     :name "Speaker Three" :company "Company C" :title "Director of Operations" :image "images/speaker3.jpg" :selected false :arrow-pos "arrow-class-2"},
+                     :name "Speaker Three" :company "Company C" :title "Director of Operations" :image "images/speaker3.jpg" :selected false :arrow-pos "48%"},
                     {:bio  "BIO 4! Lorem ipsum dolor sit amet, cum hinc oporteat definitionem an, solet abhorreant nec in, suas tibique epicurei mea ne. Eum nulla vivendum temporibus eu, laoreet mentitum offendit ne his. Eu sea impetus pericula deseruisse, id cum unum dicat praesent. Meis tempor melius mei an, fugit tacimates mediocritatem sed at. Ut dicit simul graeco est, accusam molestiae no pri, an his singulis moderatius. Eripuit epicuri no pri, movet iudicabit at mei."
-                     :name "Speaker Four" :company "Company D" :title "Supply Manager" :image "images/speaker4.jpg" :selected false :arrow-pos "arrow-class-3"},
+                     :name "Speaker Four" :company "Company D" :title "Supply Manager" :image "images/speaker4.jpg" :selected false :arrow-pos "68%"},
                     {:bio  "BIO 5! Lorem ipsum dolor sit amet, cum hinc oporteat definitionem an, solet abhorreant nec in, suas tibique epicurei mea ne. Eum nulla vivendum temporibus eu, laoreet mentitum offendit ne his. Eu sea impetus pericula deseruisse, id cum unum dicat praesent. Meis tempor melius mei an, fugit tacimates mediocritatem sed at. Ut dicit simul graeco est, accusam molestiae no pri, an his singulis moderatius. Eripuit epicuri no pri, movet iudicabit at mei."
-                     :name "Speaker Four" :company "Company E" :title "Founder & CEO" :image "images/speaker5.jpg" :selected false :arrow-pos "arrow-class-4"}]}))
+                     :name "Speaker Four" :company "Company E" :title "Founder & CEO" :image "images/speaker5.jpg" :selected false :arrow-pos "88%"}]}))
 
 
 (defn thumb-class [speaker]
@@ -62,7 +62,7 @@
                (dom/h1 nil "Featured Conference Speakers")
                (apply dom/div #js {:id "wireframe"}
                       (map #(om/build speaker-view %1 {:init-state {:selected-chan selected}}) (:speakers app)))
-               (dom/div #js {:className (:arrow-pos (first (filter :selected (:speakers app)))) :id "arrow"})
+               (dom/div #js {:margin-left (:arrow-pos (first (filter :selected (:speakers app)))) :id "arrow"})
                (dom/div #js {:id "bio0"} (:bio (first (filter :selected (:speakers app)))))))))
 
 (om/root speakers-view app-state

@@ -83,7 +83,7 @@ body {
 	position: relative;
 	display: block;
 	top: 257px;
-	left: 8%;
+/*	left: 8%;*/
 	width: 20px;
 	height: 15px;
 	background-image: url('images/arrow.png');
@@ -104,6 +104,26 @@ body {
 	background-color: #403e56;
 	color: white;
 	border-radius: 8px 8px 8px 8px;
+}
+
+.arrow-class-0 {
+left: 8%;
+}
+
+.arrow-class-1 {
+left: 28%;
+}
+
+.arrow-class-2 {
+left: 48%;
+}
+
+.arrow-class-3 {
+left: 68%;
+}
+
+.arrow-class-4 {
+left: 88%;
 }
 
 #bio1, #bio2, #bio3, #bio4 {display: none;}
